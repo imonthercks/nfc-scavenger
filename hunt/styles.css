@@ -1,0 +1,359 @@
+/* =====================================================
+   Cub Scout NFC Scavenger Hunt — Shared Theme
+   Colors: Scout Blue #003f87 | Gold #FFC423
+   ===================================================== */
+
+:root {
+  --blue:        #003f87;
+  --blue-dark:   #001a3a;
+  --blue-mid:    #00509e;
+  --gold:        #FFC423;
+  --gold-dark:   #d4a017;
+  --gold-light:  #ffe580;
+  --red:         #BE0000;
+  --white:       #ffffff;
+  --off-white:   #f9f5e8;
+  --card-bg:     rgba(0, 26, 58, 0.75);
+  --card-border: rgba(255, 196, 35, 0.55);
+  --text-muted:  rgba(255, 255, 255, 0.80);
+  --shadow:      0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 16px; }
+
+/* ── Body / Background ─────────────────────────────── */
+body {
+  background-color: var(--blue-dark);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, var(--blue) 0%, var(--blue-dark) 65%);
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.75rem 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Star field (CSS-only) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.90) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.60) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.40) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,230,100,0.55) 1px, transparent 1px);
+  background-size: 220px 220px, 160px 160px, 110px 110px, 90px 90px;
+  background-position: 15px 20px, 80px 55px, 40px 90px, 60px 10px;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Layout wrapper ────────────────────────────────── */
+.page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 660px;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.site-header {
+  text-align: center;
+  padding: 1.75rem 1rem 1rem;
+}
+
+.emblem {
+  display: block;
+  width: 90px;
+  height: auto;
+  margin: 0 auto 0.75rem;
+  filter: drop-shadow(0 0 12px rgba(255,196,35,0.55));
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(255,196,35,0.50)); }
+  50%       { filter: drop-shadow(0 0 22px rgba(255,196,35,0.85)); }
+}
+
+.site-title {
+  font-size: clamp(1.9rem, 7vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  color: var(--gold);
+  text-shadow:
+    2px 2px 0 var(--blue-dark),
+    0 0 28px rgba(255,196,35,0.45);
+  text-transform: uppercase;
+}
+
+.site-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+/* ── Gold divider ──────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.1rem 0;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+  border-radius: 2px;
+}
+
+/* ── Card ──────────────────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 14px;
+  padding: 1.5rem 1.4rem;
+  margin: 0.85rem 0;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* ── Station badge ─────────────────────────────────── */
+.station-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 35% 35%, var(--gold), var(--gold-dark));
+  color: var(--blue-dark);
+  border-radius: 50%;
+  border: 5px solid var(--white);
+  box-shadow:
+    0 0 0 3px var(--gold-dark),
+    0 0 28px rgba(255,196,35,0.60),
+    var(--shadow);
+  margin: 0 auto 1rem;
+  animation: pulse-glow 3s ease-in-out infinite;
+  text-align: center;
+  line-height: 1;
+  position: relative;
+}
+
+.station-badge .label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.station-badge .number {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ── Clue box ──────────────────────────────────────── */
+.clue-box {
+  background: rgba(0, 63, 135, 0.55);
+  border: 2px dashed var(--gold);
+  border-radius: 10px;
+  padding: 1.2rem 1.1rem;
+  margin: 0.85rem 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  font-style: italic;
+  color: var(--off-white);
+  position: relative;
+}
+
+.clue-box::before {
+  content: '🗺️';
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-style: normal;
+}
+
+/* ── Activity box ──────────────────────────────────── */
+.activity-box {
+  background: rgba(255, 196, 35, 0.10);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.1rem;
+  margin: 0.85rem 0;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.activity-box strong {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+/* ── Instruction list ──────────────────────────────── */
+.instruction-list {
+  list-style: none;
+  padding: 0;
+}
+
+.instruction-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,196,35,0.15);
+  font-size: 0.97rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.instruction-list li:last-child { border-bottom: none; }
+
+.step-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  color: var(--blue-dark);
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+
+/* ── Station count pill ────────────────────────────── */
+.station-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,196,35,0.18);
+  border: 2px solid var(--gold);
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin: 0.5rem auto;
+}
+
+/* ── Buttons ───────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  letter-spacing: 0.04em;
+  border: none;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--blue-dark);
+  box-shadow: 0 4px 16px rgba(255,196,35,0.50);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 24px rgba(255,196,35,0.70);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+.btn-outline:hover {
+  background: rgba(255,196,35,0.12);
+}
+
+/* ── Footer ────────────────────────────────────────── */
+.site-footer {
+  text-align: center;
+  padding: 1.4rem 1rem 0.5rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.03em;
+}
+
+.site-footer .motto {
+  font-size: 0.9rem;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+/* ── Text utilities ────────────────────────────────── */
+.text-center { text-align: center; }
+.text-gold   { color: var(--gold); }
+.mt-1        { margin-top: 0.5rem; }
+.mt-2        { margin-top: 1rem; }
+.mt-3        { margin-top: 1.5rem; }
+.mb-1        { margin-bottom: 0.5rem; }
+
+/* ── Sparkle animation ─────────────────────────────── */
+.sparkle {
+  display: inline-block;
+  animation: spin-sparkle 4s linear infinite;
+}
+@keyframes spin-sparkle {
+  0%   { transform: rotate(0deg)   scale(1); }
+  50%  { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 420px) {
+  .site-title { font-size: 1.75rem; }
+  .card { padding: 1.1rem 1rem; }
+  .station-badge { width: 105px; height: 105px; }
+  .station-badge .number { font-size: 2.6rem; }
+}

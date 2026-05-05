@@ -1,1 +1,114 @@
-test2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cub Scout Scavenger Hunt</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── Header ── -->
+    <header class="site-header">
+      <!-- Fleur-de-lis emblem (inline SVG — no network request) -->
+      <svg class="emblem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 100" aria-hidden="true">
+        <!-- center petal -->
+        <ellipse cx="40" cy="22" rx="10" ry="20" fill="#FFC423"/>
+        <!-- left petal -->
+        <ellipse cx="20" cy="38" rx="18" ry="9" transform="rotate(-30 20 38)" fill="#FFC423"/>
+        <!-- right petal -->
+        <ellipse cx="60" cy="38" rx="18" ry="9" transform="rotate(30 60 38)" fill="#FFC423"/>
+        <!-- center dot -->
+        <circle cx="40" cy="38" r="6" fill="#001a3a"/>
+        <!-- horizontal band -->
+        <rect x="18" y="46" width="44" height="8" rx="4" fill="#FFC423"/>
+        <!-- bottom body -->
+        <path d="M28 54 Q26 72 40 78 Q54 72 52 54 Z" fill="#FFC423"/>
+        <!-- bottom split -->
+        <line x1="40" y1="64" x2="40" y2="78" stroke="#001a3a" stroke-width="2.5"/>
+      </svg>
+
+      <h1 class="site-title">Cub Scout<br/>Scavenger Hunt</h1>
+      <p class="site-subtitle">Find the clues &bull; Complete the challenges &bull; Earn your badge!</p>
+    </header>
+
+    <!-- ── Gold divider ── -->
+    <div class="divider" role="presentation">⚜️</div>
+
+    <!-- ── Welcome card ── -->
+    <section class="card">
+      <h2 class="card-title">🏕️ Welcome, Scouts!</h2>
+      <p style="color:rgba(255,255,255,0.88); line-height:1.65; font-size:1rem;">
+        Get ready for an adventure! Scattered around the area are
+        <strong style="color:#FFC423;">NFC tags</strong> &mdash; each one holds a clue
+        that leads you to the next station. Work together, use your Scout skills,
+        and see if your den can find them all!
+      </p>
+
+      <div style="text-align:center; margin-top:1rem;">
+        <span class="station-count">🗺️ &nbsp; Multiple Stations to Find!</span>
+      </div>
+    </section>
+
+    <!-- ── How to play ── -->
+    <section class="card">
+      <h2 class="card-title">📋 How to Play</h2>
+      <ol class="instruction-list">
+        <li>
+          <span class="step-num">1</span>
+          <span>Tap your phone or device to an <strong style="color:#FFC423;">NFC tag</strong> when you find one.</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span>Read the <strong style="color:#FFC423;">clue</strong> on the page and figure out where to go next.</span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span>Complete the <strong style="color:#FFC423;">activity</strong> or answer the question at each station.</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span>Find all the stations and report back to your <strong style="color:#FFC423;">den leader</strong>!</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ── Scout tips ── -->
+    <section class="card">
+      <h2 class="card-title">⚡ Scout Tips</h2>
+      <div class="activity-box">
+        <strong>🔦 Stay together</strong> &mdash; Always hunt in pairs or as a group. No Scout hunts alone!
+      </div>
+      <div class="activity-box">
+        <strong>🧭 Be Prepared</strong> &mdash; Keep your eyes open for anything that looks out of place.
+      </div>
+      <div class="activity-box">
+        <strong>🤝 Help each other</strong> &mdash; If your den is stuck, put your heads together and brainstorm!
+      </div>
+    </section>
+
+    <!-- ── Scout Oath reminder ── -->
+    <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
+
+    <section class="card text-center">
+      <h2 class="card-title" style="justify-content:center;">🤚 Scout Oath</h2>
+      <p style="font-style:italic; line-height:1.8; color:rgba(255,255,255,0.85); font-size:0.97rem;">
+        "On my honor I will do my best<br/>
+        to do my duty to God and my country<br/>
+        and to obey the Scout Law;<br/>
+        to help other people at all times;<br/>
+        to keep myself physically strong,<br/>
+        mentally awake, and morally straight."
+      </p>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+      <p class="motto">Be Prepared! ⚜️</p>
+      <p>Boy Scouts of America &bull; Cub Scouts</p>
+    </footer>
+
+  </div>
+</body>
+</html>
