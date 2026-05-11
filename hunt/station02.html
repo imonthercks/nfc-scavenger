@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Station 2 — Cub Scout Scavenger Hunt</title>
+  <title>Shady Shelter — Cub Scout Scavenger Hunt</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="hunt.js" defer></script>
 </head>
 <body>
   <div class="page">
 
     <!-- ── Station badge ── -->
     <header class="site-header">
-      <div class="station-badge" aria-label="Station 2">
-        <span class="label">Station</span>
-        <span class="number">2</span>
+      <div class="station-badge" aria-label="Shady Shelter">
+        <span class="station-icon">⛺</span>
+        <span id="station-progress" class="station-progress"></span>
       </div>
-      <h1 class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">The Shady Shelter</h1>
+      <h1 class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">Shady Shelter</h1>
       <p class="site-subtitle">You found it! Now read the clue below&hellip;</p>
     </header>
 
@@ -26,8 +27,8 @@
     <section class="card text-center">
       <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎉</div>
       <h2 class="card-title" style="justify-content:center;">Nice work, Scout!</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.6; font-size:1rem;">
-        You tracked down Station&nbsp;2! Catch your breath, then solve the clue to find Station&nbsp;3.
+      <p style="color:var(--text-body); line-height:1.6; font-size:1rem;">
+        You found this station! Catch your breath, then solve the clue to find your next stop.
       </p>
     </section>
 
@@ -41,8 +42,8 @@
         and respects where I stand.<br/>
         What am I?"
       </div>
-      <p style="color:rgba(255,255,255,0.55); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
-        (Answer: a flag — find the flagpole and look for Station 3 at its base!)
+      <p style="color:var(--text-muted-card); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
+        (Answer: a flag — find the flagpole and look for the next NFC tag at its base!)
       </p>
     </section>
 
@@ -60,16 +61,19 @@
       </div>
     </section>
 
-    <!-- ── Next station hint ── -->
-    <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
+    <!-- ── Next station section (JS fills this in) ── -->
+    <div id="next-station-section">
+      <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
 
-    <section class="card text-center">
-      <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
-        Head toward the <strong style="color:#FFC423;">main flagpole</strong> near the park entrance.
-        Station&nbsp;3 is waiting at the base&hellip;
-      </p>
-    </section>
+      <section class="card text-center">
+        <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
+        <p style="color:var(--text-body); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
+          Head toward the <strong style="color:#FFC423;">main flagpole</strong> near the park entrance.
+          The next NFC tag is waiting at the base&hellip;
+        </p>
+        <a id="next-station-link" href="#" class="btn btn-primary" style="display:none;"></a>
+      </section>
+    </div>
 
     <!-- ── Nav ── -->
     <nav style="text-align:center; margin-top:1rem;">
@@ -83,5 +87,6 @@
     </footer>
 
   </div>
+  <script>ScoutHunt.initStation(2);</script>
 </body>
 </html>

@@ -4,19 +4,24 @@
    ===================================================== */
 
 :root {
-  --blue:        #003f87;
-  --blue-dark:   #001a3a;
-  --blue-mid:    #00509e;
-  --gold:        #FFC423;
-  --gold-dark:   #d4a017;
-  --gold-light:  #ffe580;
-  --red:         #BE0000;
-  --white:       #ffffff;
-  --off-white:   #f9f5e8;
-  --card-bg:     rgba(0, 26, 58, 0.75);
-  --card-border: rgba(255, 196, 35, 0.55);
-  --text-muted:  rgba(255, 255, 255, 0.80);
-  --shadow:      0 4px 24px rgba(0, 0, 0, 0.45);
+  --blue:           #003f87;
+  --blue-dark:      #001a3a;
+  --blue-mid:       #00509e;
+  --gold:           #FFC423;
+  --gold-dark:      #d4a017;
+  --gold-light:     #ffe580;
+  --red:            #BE0000;
+  --white:          #ffffff;
+  --off-white:      #f9f5e8;
+  --card-bg:        rgba(0, 26, 58, 0.75);
+  --card-border:    rgba(255, 196, 35, 0.55);
+  --text-muted:     rgba(255, 255, 255, 0.80);
+  --shadow:         0 4px 24px rgba(0, 0, 0, 0.45);
+  /* Semantic text tokens — used via var() in inline styles so they
+     respond to light-mode overrides below.                        */
+  --text-body:      rgba(255, 255, 255, 0.88);
+  --text-italic:    rgba(255, 255, 255, 0.85);
+  --text-muted-card:rgba(255, 255, 255, 0.55);
 }
 
 *, *::before, *::after {
@@ -184,6 +189,25 @@ body::before {
   font-size: 3rem;
   font-weight: 900;
   line-height: 1;
+}
+
+/* Station icon (emoji) replaces the old number */
+.station-badge .station-icon {
+  font-size: 2.6rem;
+  line-height: 1;
+  display: block;
+}
+
+/* Progress text filled in by JS: "Stop 2 of 5" */
+.station-badge .station-progress {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 0.15rem;
+  display: block;
+  min-height: 0.9rem; /* reserve space so badge doesn't jump */
 }
 
 /* ── Clue box ──────────────────────────────────────── */
@@ -355,5 +379,90 @@ body::before {
   .site-title { font-size: 1.75rem; }
   .card { padding: 1.1rem 1rem; }
   .station-badge { width: 105px; height: 105px; }
-  .station-badge .number { font-size: 2.6rem; }
+  .station-badge .station-icon { font-size: 2.2rem; }
+}
+
+/* ── Light mode (outdoor / daytime) ────────────────── */
+/*
+   Activated automatically when the device OS is set
+   to Light mode — great for reading in sunlight.
+   The dark mode above remains the default and is ideal
+   for evening / night activities.
+*/
+@media (prefers-color-scheme: light) {
+  :root {
+    --blue-dark:       #001a3a;
+    --blue-mid:        #00509e;
+    --card-bg:         rgba(255, 255, 255, 0.93);
+    --card-border:     rgba(0, 63, 135, 0.30);
+    --text-muted:      rgba(0, 26, 58, 0.75);
+    --shadow:          0 4px 20px rgba(0, 0, 0, 0.12);
+    --text-body:       rgba(0, 26, 58, 0.90);
+    --text-italic:     rgba(0, 26, 58, 0.85);
+    --text-muted-card: rgba(0, 26, 58, 0.50);
+    --off-white:       #001a3a;
+  }
+
+  body {
+    background-color: #d9e8ff;
+    background-image:
+      radial-gradient(ellipse at 50% 0%, #b3ccf7 0%, #d9e8ff 65%);
+    color: var(--blue-dark);
+  }
+
+  body::before { opacity: 0.05; }
+
+  .site-title {
+    color: var(--blue-dark);
+    text-shadow: 1px 1px 0 rgba(255, 196, 35, 0.25);
+  }
+
+  .site-subtitle { color: rgba(0, 26, 58, 0.65); }
+
+  .divider { color: var(--blue-mid); }
+  .divider::before,
+  .divider::after {
+    background: linear-gradient(to right, transparent, var(--blue-mid), transparent);
+  }
+
+  .card-title { color: var(--blue-mid); }
+
+  .clue-box {
+    background: rgba(0, 63, 135, 0.07);
+    border-color: var(--blue-mid);
+    color: var(--blue-dark);
+  }
+
+  .activity-box {
+    background: rgba(0, 63, 135, 0.07);
+    border-left-color: var(--blue-mid);
+    color: var(--text-muted);
+  }
+
+  .activity-box strong { color: var(--blue-mid); }
+
+  .instruction-list li {
+    color: var(--text-muted);
+    border-bottom-color: rgba(0, 63, 135, 0.15);
+  }
+
+  .step-num {
+    background: var(--blue-mid);
+    color: var(--white);
+  }
+
+  .station-count {
+    background: rgba(0, 63, 135, 0.10);
+    border-color: var(--blue-mid);
+    color: var(--blue-mid);
+  }
+
+  .btn-outline {
+    border-color: var(--blue-mid);
+    color: var(--blue-mid);
+  }
+  .btn-outline:hover { background: rgba(0, 63, 135, 0.10); }
+
+  .site-footer { color: rgba(0, 26, 58, 0.45); }
+  .site-footer .motto { color: var(--blue-mid); }
 }

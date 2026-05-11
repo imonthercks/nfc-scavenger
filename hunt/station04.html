@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Station 4 — Cub Scout Scavenger Hunt</title>
+  <title>Creek Crossing — Cub Scout Scavenger Hunt</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="hunt.js" defer></script>
 </head>
 <body>
   <div class="page">
 
     <!-- ── Station badge ── -->
     <header class="site-header">
-      <div class="station-badge" aria-label="Station 4">
-        <span class="label">Station</span>
-        <span class="number">4</span>
+      <div class="station-badge" aria-label="Creek Crossing">
+        <span class="station-icon">🌊</span>
+        <span id="station-progress" class="station-progress"></span>
       </div>
-      <h1 class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">The Creek Crossing</h1>
+      <h1 class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">Creek Crossing</h1>
       <p class="site-subtitle">You found it! Now read the clue below&hellip;</p>
     </header>
 
@@ -26,8 +27,8 @@
     <section class="card text-center">
       <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎉</div>
       <h2 class="card-title" style="justify-content:center;">Fantastic, Scout!</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.6; font-size:1rem;">
-        You made it to Station&nbsp;4! One more clue and the finish line is in sight.
+      <p style="color:var(--text-body); line-height:1.6; font-size:1rem;">
+        You made it to this station! Keep solving clues — you're doing great.
       </p>
     </section>
 
@@ -40,8 +41,8 @@
         Check the map — your den leader knows the spot.<br/>
         It's the last place you haven't searched yet. Ready? Ready!"
       </div>
-      <p style="color:rgba(255,255,255,0.55); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
-        (Hint: your den leader has coordinates for the final station — ask them!)
+      <p style="color:var(--text-muted-card); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
+        (Hint: your den leader has coordinates for the next station — ask them!)
       </p>
     </section>
 
@@ -62,7 +63,7 @@
     <!-- ── Location card ── -->
     <section class="card">
       <h2 class="card-title">📍 Station Location</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.65; font-size:1rem; margin-bottom:0.75rem;">
+      <p style="color:var(--text-body); line-height:1.65; font-size:1rem; margin-bottom:0.75rem;">
         This station is located at the wooden footbridge over Meadow Creek.
         You can view the exact spot on the map:
       </p>
@@ -74,21 +75,23 @@
           🗺️ Open in Google Maps
         </a>
       </div>
-      <p style="color:rgba(255,255,255,0.45); font-size:0.75rem; text-align:center; margin-top:0.5rem;">
+      <p style="color:var(--text-muted-card); font-size:0.75rem; text-align:center; margin-top:0.5rem;">
         Coordinates: 37.6872, &minus;97.3301
       </p>
     </section>
 
-    <!-- ── Next station hint ── -->
-    <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
+    <!-- ── Next station section (JS fills this in) ── -->
+    <div id="next-station-section">
+      <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
 
-    <section class="card text-center">
-      <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
-        Head back toward the main pavilion — Station&nbsp;5 and the
-        <strong style="color:#FFC423;">finish line</strong> are waiting for you there!
-      </p>
-    </section>
+      <section class="card text-center">
+        <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
+        <p style="color:var(--text-body); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
+          Head back toward the <strong style="color:#FFC423;">main pavilion</strong> — the next stop is waiting there!
+        </p>
+        <a id="next-station-link" href="#" class="btn btn-primary" style="display:none;"></a>
+      </section>
+    </div>
 
     <!-- ── Nav ── -->
     <nav style="text-align:center; margin-top:1rem;">
@@ -102,5 +105,6 @@
     </footer>
 
   </div>
+  <script>ScoutHunt.initStation(4);</script>
 </body>
 </html>

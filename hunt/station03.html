@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Station 3 — Cub Scout Scavenger Hunt</title>
+  <title>Honor &amp; Colors — Cub Scout Scavenger Hunt</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="hunt.js" defer></script>
 </head>
 <body>
   <div class="page">
 
     <!-- ── Station badge ── -->
     <header class="site-header">
-      <div class="station-badge" aria-label="Station 3">
-        <span class="label">Station</span>
-        <span class="number">3</span>
+      <div class="station-badge" aria-label="Honor and Colors">
+        <span class="station-icon">🚩</span>
+        <span id="station-progress" class="station-progress"></span>
       </div>
       <h1 class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">Honor &amp; Colors</h1>
       <p class="site-subtitle">You found it! Now read the clue below&hellip;</p>
@@ -26,8 +27,8 @@
     <section class="card text-center">
       <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎉</div>
       <h2 class="card-title" style="justify-content:center;">Outstanding, Scout!</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.6; font-size:1rem;">
-        Station&nbsp;3 is yours! Salute the flag, then crack the clue to keep the hunt going.
+      <p style="color:var(--text-body); line-height:1.6; font-size:1rem;">
+        You found this station! Salute the flag, then crack the clue to keep the hunt going.
       </p>
     </section>
 
@@ -40,8 +41,8 @@
         Fish call me home, and frogs sing my song.<br/>
         Cross my little bridge — you won't go wrong."
       </div>
-      <p style="color:rgba(255,255,255,0.55); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
-        (Answer: a creek — head to the footbridge over the creek to find Station 4!)
+      <p style="color:var(--text-muted-card); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
+        (Answer: a creek — head to the footbridge over the creek to find the next NFC tag!)
       </p>
     </section>
 
@@ -59,16 +60,19 @@
       </div>
     </section>
 
-    <!-- ── Next station hint ── -->
-    <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
+    <!-- ── Next station section (JS fills this in) ── -->
+    <div id="next-station-section">
+      <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
 
-    <section class="card text-center">
-      <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
-        Follow the trail south toward the sound of running water.
-        Cross the <strong style="color:#FFC423;">wooden footbridge</strong> and check the railing post on the far side.
-      </p>
-    </section>
+      <section class="card text-center">
+        <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
+        <p style="color:var(--text-body); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
+          Follow the trail south toward the sound of running water.
+          Cross the <strong style="color:#FFC423;">wooden footbridge</strong> and check the railing post on the far side.
+        </p>
+        <a id="next-station-link" href="#" class="btn btn-primary" style="display:none;"></a>
+      </section>
+    </div>
 
     <!-- ── Nav ── -->
     <nav style="text-align:center; margin-top:1rem;">
@@ -82,5 +86,6 @@
     </footer>
 
   </div>
+  <script>ScoutHunt.initStation(3);</script>
 </body>
 </html>

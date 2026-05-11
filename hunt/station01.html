@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Station 1 — Cub Scout Scavenger Hunt</title>
+  <title>Trail Station — Cub Scout Scavenger Hunt</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="hunt.js" defer></script>
 </head>
 <body>
   <div class="page">
 
     <!-- ── Station badge ── -->
     <header class="site-header">
-      <div class="station-badge" aria-label="Station 1">
-        <span class="label">Station</span>
-        <span class="number">1</span>
+      <div class="station-badge" aria-label="Trail Station">
+        <span class="station-icon">🌳</span>
+        <span id="station-progress" class="station-progress"></span>
       </div>
-      <h1 class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">The First Trail</h1>
+      <h1 class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">Trail Station</h1>
       <p class="site-subtitle">You found it! Now read the clue below&hellip;</p>
     </header>
 
@@ -26,8 +27,8 @@
     <section class="card text-center">
       <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎉</div>
       <h2 class="card-title" style="justify-content:center;">Great job, Scout!</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.6; font-size:1rem;">
-        You tracked down Station&nbsp;1! Now solve the clue to discover where Station&nbsp;2 is hiding.
+      <p style="color:var(--text-body); line-height:1.6; font-size:1rem;">
+        You tracked down this station! Now solve the clue to discover where to go next.
       </p>
     </section>
 
@@ -35,14 +36,14 @@
     <section class="card">
       <h2 class="card-title">🕵️ Your Clue</h2>
       <div class="clue-box">
-        <!-- ✏️  REPLACE THIS with your actual clue for Station 1 -->
+        <!-- ✏️  REPLACE THIS with your actual clue -->
         "I stand tall and have many arms,<br/>
         but I never carry anything.<br/>
         Birds call me home, and I love the rain.<br/>
         What am I?"
       </div>
-      <p style="color:rgba(255,255,255,0.55); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
-        (Answer: a tree — find the big one and look for Station 2 there!)
+      <p style="color:var(--text-muted-card); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
+        (Answer: a tree — find the big one and look for the next NFC tag there!)
       </p>
     </section>
 
@@ -50,7 +51,7 @@
     <section class="card">
       <h2 class="card-title">🏅 Station Challenge</h2>
       <div class="activity-box">
-        <!-- ✏️  REPLACE THIS with your actual activity for Station 1 -->
+        <!-- ✏️  REPLACE THIS with your actual activity -->
         <strong>Nature Spotters!</strong><br/>
         Before you move on, find and identify <strong style="color:#FFC423;">3 different types of plants</strong>
         near this station. Tell your den leader what you found when you return!
@@ -61,19 +62,20 @@
       </div>
     </section>
 
-    <!-- ── Next station hint ── -->
-    <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
+    <!-- ── Next station section (JS fills this in) ── -->
+    <div id="next-station-section">
+      <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
 
-    <section class="card text-center">
-      <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
-      <p style="color:rgba(255,255,255,0.85); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
-        <!-- ✏️  REPLACE or remove this directional hint -->
-        Head toward the <strong style="color:#FFC423;">big oak tree</strong> at the east end of the field.
-        Look low, near the roots&hellip;
-      </p>
-      <!-- Optional: link to next station if you want a direct link instead of NFC -->
-      <!-- <a href="station02.html" class="btn btn-primary">Go to Station 2 →</a> -->
-    </section>
+      <section class="card text-center">
+        <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
+        <p style="color:var(--text-body); line-height:1.65; font-size:1rem; margin-bottom:1rem;">
+          <!-- ✏️  REPLACE or remove this directional hint -->
+          Head toward the <strong style="color:#FFC423;">big oak tree</strong> at the east end of the field.
+          Look low, near the roots&hellip;
+        </p>
+        <a id="next-station-link" href="#" class="btn btn-primary" style="display:none;"></a>
+      </section>
+    </div>
 
     <!-- ── Nav ── -->
     <nav style="text-align:center; margin-top:1rem;">
@@ -87,5 +89,6 @@
     </footer>
 
   </div>
+  <script>ScoutHunt.initStation(1);</script>
 </body>
 </html>
