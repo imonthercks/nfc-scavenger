@@ -33,11 +33,18 @@
       var raw = localStorage.getItem(ROUTE_KEY);
       if (!raw) return null;
       return raw.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
-    } catch (e) { return null; }
+    } catch (e) {
+      console.warn('ScoutHunt: could not read route from localStorage', e);
+      return null;
+    }
   }
 
   function saveRoute(orderStr) {
-    try { localStorage.setItem(ROUTE_KEY, orderStr); } catch (e) {}
+    try {
+      localStorage.setItem(ROUTE_KEY, orderStr);
+    } catch (e) {
+      console.warn('ScoutHunt: could not save route to localStorage', e);
+    }
   }
 
   /* ── Index page ───────────────────────────────── */

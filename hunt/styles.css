@@ -22,6 +22,8 @@
   --text-body:      rgba(255, 255, 255, 0.88);
   --text-italic:    rgba(255, 255, 255, 0.85);
   --text-muted-card:rgba(255, 255, 255, 0.55);
+  /* Station badge icon size — overridden in the small-screen breakpoint */
+  --station-icon-size: 2.6rem;
 }
 
 *, *::before, *::after {
@@ -193,7 +195,7 @@ body::before {
 
 /* Station icon (emoji) replaces the old number */
 .station-badge .station-icon {
-  font-size: 2.6rem;
+  font-size: var(--station-icon-size);
   line-height: 1;
   display: block;
 }
@@ -376,10 +378,10 @@ body::before {
 
 /* ── Responsive ────────────────────────────────────── */
 @media (max-width: 420px) {
+  :root { --station-icon-size: 2.2rem; }
   .site-title { font-size: 1.75rem; }
   .card { padding: 1.1rem 1rem; }
   .station-badge { width: 105px; height: 105px; }
-  .station-badge .station-icon { font-size: 2.2rem; }
 }
 
 /* ── Light mode (outdoor / daytime) ────────────────── */
