@@ -52,18 +52,6 @@
       </div>
     </section>
 
-    <!-- ── Starting station (filled by JS if ?order= param is present) ── -->
-    <section class="card">
-      <h2 class="card-title">🚀 Your Starting Station</h2>
-      <div id="start-station">
-        <!-- JS fills this in; shown as a fallback if JS is unavailable -->
-        <p style="color:var(--text-body); line-height:1.65; font-size:1rem;">
-          Ask your <strong style="color:#FFC423;">den leader</strong> for your
-          group's starting link, then tap the NFC tag at your first station to begin!
-        </p>
-      </div>
-    </section>
-
     <!-- ── How to play ── -->
     <section class="card">
       <h2 class="card-title">📋 How to Play</h2>
@@ -105,6 +93,18 @@
       </div>
     </section>
 
+    <!-- ── Starting station (filled by JS if ?order= param is present) ── -->
+    <section class="card">
+      <h2 class="card-title">🚀 Your Starting Station</h2>
+      <div id="start-station">
+        <!-- JS fills this in; shown as a fallback if JS is unavailable -->
+        <p style="color:var(--text-body); line-height:1.65; font-size:1rem;">
+          Ask your <strong style="color:#FFC423;">den leader</strong> for your
+          group's starting link, then tap the NFC tag at your first station to begin!
+        </p>
+      </div>
+    </section>
+
     <!-- ── Scout Oath reminder ── -->
     <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
 
@@ -127,6 +127,12 @@
     </footer>
 
   </div>
-  <script>ScoutHunt.initIndex();</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.ScoutHunt && typeof window.ScoutHunt.initIndex === 'function') {
+        window.ScoutHunt.initIndex();
+      }
+    });
+  </script>
 </body>
 </html>

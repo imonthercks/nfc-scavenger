@@ -1,0 +1,6 @@
+node_modules/
+*.pdf
+/.cache
+.DS_Store
+dist/
+coverage/

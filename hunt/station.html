@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Station — Cub Scout Scavenger Hunt</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="hunt.js" defer></script>
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="station-badge" aria-label="station">
+        <span id="station-emoji" class="station-icon">🏕️</span>
+        <span id="station-progress" class="station-progress"></span>
+      </div>
+      <h1 id="station-title" class="site-title" style="font-size:clamp(1.5rem,6vw,2.2rem);">Station</h1>
+      <p class="site-subtitle">You found it! Now read the clue below…</p>
+    </header>
+
+    <div class="divider" role="presentation">⚜️</div>
+
+    <section class="card text-center">
+      <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎉</div>
+      <h2 class="card-title" style="justify-content:center;">Great job, Scout!</h2>
+      <p style="color:var(--text-body); line-height:1.6; font-size:1rem;">
+        You tracked down this station! Now solve the clue to discover where to go next.
+      </p>
+    </section>
+
+    <section class="card">
+      <div id="clue-box" class="clue-box clue-map">
+        <div class="clue-text">Loading clue…</div>
+        <div id="clue-hint" style="color:var(--text-muted-card); font-size:0.8rem; text-align:center; margin-top:0.5rem;"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">🏅 Station Challenge</h2>
+      <div id="activity-box" class="activity-box">Loading activity…</div>
+    </section>
+
+    <div id="next-station-section">
+      <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
+
+      <section class="card text-center">
+        <h2 class="card-title" style="justify-content:center;">🧭 Where to Next?</h2>
+        <p id="next-hint" style="color:var(--text-body); line-height:1.65; font-size:1rem; margin-bottom:1rem;"></p>
+        <a id="next-station-link" href="#" class="btn btn-primary" style="display:none;"></a>
+      </section>
+    </div>
+
+    <nav style="text-align:center; margin-top:1rem;">
+      <a href="index.html" class="btn btn-outline">⬅ Back to Hunt HQ</a>
+    </nav>
+
+    <footer class="site-footer">
+      <p class="motto">Be Prepared! ⚜️</p>
+      <p>Boy Scouts of America • Cub Scouts</p>
+    </footer>
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var params = new URLSearchParams(window.location.search);
+      var id = params.get('id');
+      if (!id) {
+        var m = /station0?(\d+)\.html$/i.exec(window.location.pathname);
+        if (m) id = m[1];
+      }
+      if (!id) return;
+      var numericId = Number(id);
+      if (window.ScoutHunt && typeof window.ScoutHunt.initStation === 'function') {
+        window.ScoutHunt.initStation(numericId);
+      } else {
+        window._pendingStationId = numericId;
+      }
+    });
+  </script>
+</body>
+</html>
