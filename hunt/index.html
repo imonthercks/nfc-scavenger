@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cub Scout Scavenger Hunt</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="hunt.js" defer></script>
 </head>
 <body>
   <div class="page">
@@ -39,7 +40,7 @@
     <!-- ── Welcome card ── -->
     <section class="card">
       <h2 class="card-title">🏕️ Welcome, Scouts!</h2>
-      <p style="color:rgba(255,255,255,0.88); line-height:1.65; font-size:1rem;">
+      <p style="color:var(--text-body); line-height:1.65; font-size:1rem;">
         Get ready for an adventure! Scattered around the area are
         <strong style="color:#FFC423;">NFC tags</strong> &mdash; each one holds a clue
         that leads you to the next station. Work together, use your Scout skills,
@@ -57,18 +58,22 @@
       <ol class="instruction-list">
         <li>
           <span class="step-num">1</span>
-          <span>Tap your phone or device to an <strong style="color:#FFC423;">NFC tag</strong> when you find one.</span>
+          <span>Ask your <strong style="color:#FFC423;">den leader</strong> for your group's unique starting link.</span>
         </li>
         <li>
           <span class="step-num">2</span>
-          <span>Read the <strong style="color:#FFC423;">clue</strong> on the page and figure out where to go next.</span>
+          <span>Tap your phone or device to an <strong style="color:#FFC423;">NFC tag</strong> when you find one.</span>
         </li>
         <li>
           <span class="step-num">3</span>
-          <span>Complete the <strong style="color:#FFC423;">activity</strong> or answer the question at each station.</span>
+          <span>Read the <strong style="color:#FFC423;">clue</strong> on the page and figure out where to go next.</span>
         </li>
         <li>
           <span class="step-num">4</span>
+          <span>Complete the <strong style="color:#FFC423;">activity</strong> or answer the question at each station.</span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
           <span>Find all the stations and report back to your <strong style="color:#FFC423;">den leader</strong>!</span>
         </li>
       </ol>
@@ -88,12 +93,24 @@
       </div>
     </section>
 
+    <!-- ── Starting station (filled by JS if ?order= param is present) ── -->
+    <section class="card">
+      <h2 class="card-title">🚀 Your Starting Station</h2>
+      <div id="start-station">
+        <!-- JS fills this in; shown as a fallback if JS is unavailable -->
+        <p style="color:var(--text-body); line-height:1.65; font-size:1rem;">
+          Ask your <strong style="color:#FFC423;">den leader</strong> for your
+          group's starting link, then tap the NFC tag at your first station to begin!
+        </p>
+      </div>
+    </section>
+
     <!-- ── Scout Oath reminder ── -->
     <div class="divider" role="presentation"><span class="sparkle">✦</span></div>
 
     <section class="card text-center">
       <h2 class="card-title" style="justify-content:center;">🤚 Scout Oath</h2>
-      <p style="font-style:italic; line-height:1.8; color:rgba(255,255,255,0.85); font-size:0.97rem;">
+      <p style="font-style:italic; line-height:1.8; color:var(--text-italic); font-size:0.97rem;">
         "On my honor I will do my best<br/>
         to do my duty to God and my country<br/>
         and to obey the Scout Law;<br/>
@@ -110,5 +127,12 @@
     </footer>
 
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.ScoutHunt && typeof window.ScoutHunt.initIndex === 'function') {
+        window.ScoutHunt.initIndex();
+      }
+    });
+  </script>
 </body>
 </html>

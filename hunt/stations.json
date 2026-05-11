@@ -1,0 +1,42 @@
+{
+  "1": {
+    "name": "Trail Station",
+    "emoji": "🌳",
+    "clue": "I stand tall and have many arms, but I never carry anything. Birds call me home, and I love the rain.",
+    "clueHint": "(Answer: a tree)",
+    "activity": "Nature Spotters: find and identify 3 different types of plants near this station.",
+    "nextHint": "Head toward the big oak tree at the east end of the field."
+  },
+  "2": {
+    "name": "Shady Shelter",
+    "emoji": "⛺",
+    "clue": "I'm a roof that isn't owned, and underneath you'll find the ground. Rest here for a spell when the sun is high.",
+    "clueHint": "(Answer: a shelter)",
+    "activity": "Shelter Builders: name two ways to stay dry in the rain.",
+    "nextHint": "Look for the picnic tables near the shelter's west side."
+  },
+  "3": {
+    "name": "Honor & Colors",
+    "emoji": "🚩",
+    "clue": "We stand for colors, folded neat and true. We honor those who serve — find us waving for you.",
+    "clueHint": "(Answer: a flag)",
+    "activity": "Flag Facts: practice folding the flag correctly as a team.",
+    "nextHint": "Check the flagpole near the main entrance."
+  },
+  "4": {
+    "name": "Creek Crossing",
+    "emoji": "🌊",
+    "clue": "I babble and I bubble but never complain; step over me carefully so your shoes stay sane.",
+    "clueHint": "(Answer: a creek)",
+    "activity": "Stream Study: spot one insect or fish in the water and describe it.",
+    "nextHint": "Cross the small footbridge and look under the guardrail."
+  },
+  "5": {
+    "name": "The Pavilion",
+    "emoji": "🏕️",
+    "clue": "A place with a roof and open sides, where groups gather for games and rides.",
+    "clueHint": "(Answer: pavilion)",
+    "activity": "Team Cheer: make a quick two-line cheer with your den.",
+    "nextHint": "Search near the center post of the pavilion."
+  }
+}

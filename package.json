@@ -1,0 +1,19 @@
+{
+  "name": "nfc-scavenger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tools for generating QR code PDFs for the NFC scavenger hunt",
+  "main": "tools/generate_qr_pdf.js",
+  "scripts": {
+    "generate-qr-pdf": "node tools/generate_qr_pdf.js",
+    "generate-qr": "node tools/generate_qr_pdf.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "pdfkit": "^0.13.0",
+    "qrcode": "^1.5.1"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
