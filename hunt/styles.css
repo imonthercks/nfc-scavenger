@@ -421,7 +421,7 @@ body::before {
    The dark mode above remains the default and is ideal
    for evening / night activities.
 */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light), (hover: none) and (pointer: coarse) {
   :root {
     --blue-dark:       #001a3a;
     --blue-mid:        #00509e;
